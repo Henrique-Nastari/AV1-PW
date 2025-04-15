@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+<div id="conteudo"></div>
+
+<script>
+    fetch('/sessao')
+        .then(res => res.text())
+        .then(nome => {
+            if (!nome) {
+                window.location.href = "/cadastro.html?erro=Faça+o+cadastro+primeiro";
+            } else {
+                document.getElementById('conteudo').innerHTML = `
+                    <h1>Bem-vindo, ${nome}!</h1>
+                    <p>Você está autenticado.</p>
+                `;
+            }
+        });
+</script>
+</body>
+</html>

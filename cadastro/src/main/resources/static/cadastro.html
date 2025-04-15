@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+</head>
+<body>
+<h1>Cadastro de Usuário</h1>
+
+<div id="erro" style="color:red;"></div>
+
+<form action="/cadastro" method="post">
+    Nome: <input type="text" name="nome" required><br/>
+    Email: <input type="email" name="email" required><br/>
+    Senha: <input type="password" name="senha" required><br/><br/>
+    <button type="submit">Cadastrar</button>
+</form>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const erro = params.get('erro');
+    if (erro) {
+        document.getElementById('erro').innerText = decodeURIComponent(erro);
+    }
+</script>
+</body>
+</html>
